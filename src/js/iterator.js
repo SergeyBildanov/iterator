@@ -28,13 +28,6 @@ export default class Team {
       }
     });
   }
-  toArray(){
-    let result = [];
-    for (const character of this.members){
-      result.push(character);
-    }
-    return result;
-  }
    [Symbol.iterator]() {
       let index = 0;
       let result = [];

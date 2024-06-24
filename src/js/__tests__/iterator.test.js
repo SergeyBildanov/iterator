@@ -4,7 +4,10 @@ test("iterator work", ()=>{
   let team = new Team();
   team.add({name:"Ваня", role:"Воин"});
   team.add({name:"Петя", role:"Воин"});
-  let correct = team.toArray();
+  let correct = [];
+  for(let char of team){
+    correct.push(char);
+  }
   let expected = [...team];
   expect(expected).toEqual(correct);
 })
@@ -22,7 +25,7 @@ test("addAll with existing Character", ()=>{
   
   team1.addAll({name:"Ваня", role:"Воин"} , {name:"Игорь", role:"Князь"});
   team2.addAll({name:"Ваня", role:"Воин"}, {name:"Ваня", role:"Воин"} , {name:"Игорь", role:"Князь"} );
-  expect(team1.toArray()).toEqual(team2.toArray());
+  expect([...team1]).toEqual([...team2]);
 })
 
 test("add new Character", ()=>{
@@ -32,5 +35,5 @@ test("add new Character", ()=>{
   team1.addAll({name:"Ваня", role:"Воин"} , {name:"Игорь", role:"Князь"});
   team2.addAll({name:"Ваня", role:"Воин"});
   team2.add({name:"Игорь", role:"Князь"});
-  expect(team1.toArray()).toEqual(team2.toArray());
+  expect([...team1]).toEqual([...team2]);
 })
